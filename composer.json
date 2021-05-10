@@ -1,0 +1,22 @@
+{
+    "name": "alc/alcventasmvc",
+    "description": "Software de ventas online",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "ALC",
+            "email": "alcides7.rko@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Libs\\": "libs/",
+            "App\\Controllers\\": "app/controllers/"
+        }
+    },
+    "require": {
+        "league/plates": "^3.4"
+    }
+    
+}
