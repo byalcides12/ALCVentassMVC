@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-</head>
-<body>
-    <h1>ALCVentas</h1>
-    <p>Sistema de ventas online</p>
-</body>
-</html>
+<?php
+$this->layout('../layouts/layout', [
+    'title' => 'ALCVentas | Inicio'
+]);
+
+?>
+
+<?php $this->push('styles') ?>
+
+<?php $this->end() ?>
+
+<?php $this->start('contents') ?>
+<div class="container">
+    <h1>ALCVentas - Welcome</h1>
+</div>
+<?php $this->stop() ?>
+
+<?php $this->push('scripts') ?>
+
+<?php $this->end() ?>
