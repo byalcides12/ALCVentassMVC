@@ -1,0 +1,138 @@
+.container-fluid.hero {
+	background: url(../images/demo-bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 500px;
+	width: 100%;
+    position: relative;
+    padding: 0 ;
+}
+.hero:after {
+	content: '';
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.8);
+    position: absolute;
+    top: 0;
+}
+.hero h1 {
+    font-size: 80px;
+}
+.hero h1,
+.hero h2 {
+    color: #fff;
+}
+.view {
+    margin-top: 50px;
+    background: #fff;
+    border: 0;
+    border-radius: 20px;
+    padding: 8px 30px;
+    cursor: pointer;
+}
+.view:focus {
+    outline: 0;
+}
+.hero .container {
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
+.hero .container div {
+	margin: auto;
+	text-align: center;
+    z-index: 2;
+    width: 100%;
+    height: 48%;
+}
+.container-fluid.main {
+    padding: 100px 0;
+}
+.demo-img .img {
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+.demo-img img {
+    max-width: 100%;
+}
+.demo-img p {
+    margin-top: 20px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.link_page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.7);
+    width: calc(100%);
+    height: calc(100%);
+    margin: 0;
+    text-align: center;
+    display: flex;
+    align-content: center;
+    opacity: 0;
+    transform: scale(2);
+    transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+}
+.link_page a:hover {
+    color: #ed1c24;
+    text-decoration: none;
+}
+.btn_view_page {
+    margin: auto;
+    background: #fff;
+    border: 0;
+    border-radius: 20px;
+    padding: 8px 30px;
+    cursor: pointer;
+    color: #000;
+    width: 40%;
+    height: 14%;
+    text-align: center;
+}
+.img:hover .link_page {
+    opacity: 1;
+    transform: scale(1.1);
+}
+.container-fluid.footer {
+    background: #252525;
+    padding: 20px 0 0;
+    color: #fff;
+}
+#toTop {
+	position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height: 48px;
+    width: 48px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 3px;
+    border-radius: 0%;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    z-index: 15;
+    opacity: 0;
+}
+.fa-chevron-up:before {
+    content: "\f077";
+}
+#toTop:hover {
+    background-color: #111;
+}
+#toTop i {
+    font-size: 28px;
+    color: #fff;
+    line-height: 46px;
+}

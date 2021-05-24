@@ -16,7 +16,8 @@
         }
     },
     "require": {
-        "league/plates": "^3.4"
+        "league/plates": "^3.4",
+        "vlucas/phpdotenv": "^5.3"
     }
     
 }

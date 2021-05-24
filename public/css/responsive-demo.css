@@ -1,0 +1,25 @@
+@media (max-width: 768px) {
+h2 {
+    font-size: 1rem !important;
+}
+.container-fluid.main {
+    padding: 70px 20px;
+}
+.container-fluid.main .container {
+    padding: 0;
+}
+.container-fluid.main .row {
+    margin: 0;
+}
+.container-fluid.main .col-md-4 {
+    padding: 0;
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+}
+.copyright-footer p {
+    text-align: center;
+}
+.btn_view_page {
+    width: 45%;
+}
+}
