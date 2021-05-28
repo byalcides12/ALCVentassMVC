@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="<?= URL . 'css/simple-line-icons.css' ?>">
     <!-- Fancybox -->
     <link rel="stylesheet" href="<?= URL . 'css/jquery.fancybox.css' ?>">
+
+    <?php $this->section('styles') ?>
+    
 </head>
 
 <body>
@@ -51,7 +54,7 @@
     <script src="<?= URL . 'js/script.js"' ?>></script>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
+    <script type=" text/javascript">
         (function(m, e, t, r, i, k, a) {
             m[i] = m[i] || function() {
                 (m[i].a = m[i].a || []).push(arguments)
@@ -69,6 +72,7 @@
             webvisor: true
         });
     </script>
+    <?= $this->section('scripts') ?>
 
 </body>
 
