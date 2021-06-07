@@ -1,0 +1,61 @@
+<?php
+$this->layout('../layouts/layout', [
+    'title' => 'ALCVentas | Categorias | Detalle'
+]);
+
+?>
+
+<?php $this->push('styles') ?>
+
+<?php $this->end() ?>
+
+<?php $this->start('contents') ?>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Categorias - Detalle</h1>
+            <form action="<?= URL. 'categoria/save'?>" method="post">
+                <input type="hidden" name="codcategoria" value="<?= $data->codcategoria ?>">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control" value="<?= $data->nombre ?>">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="descripcion">Descripcion</label>
+                        <input type="text" name="descripcion" id="descripcion" class="form-control" value="<?= $data->descripcion ?>">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group form-check">
+                            <input type="checkbox" name="Estado" id="Estado" class="form-check-input"
+                            <?=($data->estado ==1)? 'checked' : '' ?>>
+                            <label class="form-check-label" for="Estado">estado</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php $this->stop() ?>
+
+<?php $this->push('scripts') ?>
+
+<?php $this->end() ?>

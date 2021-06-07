@@ -1,5 +1,5 @@
 <?php
-namespace libs;
+namespace Libs;
 
 use Libs\Connection;
 
