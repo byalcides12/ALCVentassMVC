@@ -1,15 +1,10 @@
-<?php
-$this->layout('../layouts/layout', [
-    'title' => 'ALCVentas | Categorias'
-]);
+<?php $this->layout('../layouts/layout', ['title' => 'alcventassmvc|CATEGORIA']) ?>
 
-?>
+<?php $this->push('styles'); ?>
+<!-- //link de css  -->
+<?php $this->end(); ?>
+<?php $this->push('contents'); ?>
 
-<?php $this->push('styles') ?>
-
-<?php $this->end() ?>
-
-<?php $this->start('contents') ?>
 <div class="container">
     <h1>Bienvenidos</h1>
     <div class="row">
@@ -17,6 +12,7 @@ $this->layout('../layouts/layout', [
             <a href="<?= URL . 'categoria/detail' ?>" class="btn btn-primary btn-block">Nuevo</a>
         </div>
     </div>
+    <br>
     <div class="row">
         <div class="col-sm-12">
             <table class="table">
@@ -25,18 +21,23 @@ $this->layout('../layouts/layout', [
                         <th style="width: 10%;">ID</th>
                         <th style="width: 30%;">NOMBRE</th>
                         <th style="width: 50%;">DESCRIPCION</th>
-                        <th style="width: 10%;"></th>
+                        <th style="width: 10%;">Estado</th>
+                        <th style="width: 20%;"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($data as $row) : ?>
                         <tr>
-                            <td><?= $row->codcategoria ?></td>
-                            <td><?= $row->nombre ?></td>
-                            <td><?= $row->descripcion ?></td>
+                            <td><?= $row->IdCategoria ?></td>
+                            <td><?= $row->Nombre ?></td>
+                            <td><?= $row->Descripcion ?></td>
+                            <td><?= $row->Estado ?></td>
+                            <a href=""></a>
                             <td>
-                                <a href="<?= URL . "categoria/detail/{$row->codcategoria}" ?>" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i></a>
-                                <a href="<?= URL . "categoria/delete/{$row->codcategoria}" ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                <a href="<?= URL . "categoria/delete/{$row->IdCategoria}" ?>" title="Editar" class="btn btn-sm btn-primary"> <i class="fa fa-pencil"></i></a>
+
+                                <a href="<?= URL . "categoria/delete/{$row->IdCategoria}" ?>" title="Eliminar" class="btn btn-sm btn-danger" onclick="return confirm('¿Está seguro de eliminar este registro?')"><i class="fa fa-trash"></i></a>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -44,10 +45,9 @@ $this->layout('../layouts/layout', [
             </table>
         </div>
     </div>
-    <br>
 </div>
-<?php $this->stop() ?>
 
-<?php $this->push('scripts') ?>
-
-<?php $this->end() ?>
+<?php $this->end(); ?>
+<?php $this->push('scripts'); ?>
+<!-- //link js  -->
+<?php $this->end(); ?>
