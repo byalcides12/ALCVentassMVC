@@ -9,7 +9,7 @@
     <h1>Bienvenidos</h1>
     <div class="row">
         <div class="col-sm-4">
-            <a href="<?= URL . 'categoria/detail' ?>" class="btn btn-primary btn-block">Nuevo</a>
+            <a is-modal="true" href="<?= URL . 'categoria/detail' ?>" class="btn btn-primary btn-block">Nuevo</a>
         </div>
     </div>
     <br>
@@ -34,10 +34,9 @@
                             <td><?= $row->Estado ?></td>
                             <a href=""></a>
                             <td>
-                                <a href="<?= URL . "categoria/delete/{$row->IdCategoria}" ?>" title="Editar" class="btn btn-sm btn-primary"> <i class="fa fa-pencil"></i></a>
+                                <a is-modal="true" href="<?= URL . "categoria/detail/{$row->IdCategoria}" ?>" title="Editar" class="btn btn-sm btn-primary"> <i class="fa fa-pencil"></i></a>
 
                                 <a href="<?= URL . "categoria/delete/{$row->IdCategoria}" ?>" title="Eliminar" class="btn btn-sm btn-danger" onclick="return confirm('¿Está seguro de eliminar este registro?')"><i class="fa fa-trash"></i></a>
-
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -46,8 +45,20 @@
         </div>
     </div>
 </div>
+<?php $this->stop(); ?>
 
-<?php $this->end(); ?>
+<?php $this->start('myModal') ?>
+
+<?php
+
+$title = 'Categoria Detalle - Insertar';
+$size = GRANDE;
+include MAINPATH . 'app/views/layouts/partials/_modalGenerico.phtml';
+?>
+<?php $this->stop(); ?>
+
 <?php $this->push('scripts'); ?>
-<!-- //link js  -->
+
+
+<script src="<?= URL . 'js/scripts/modal_crud.js' ?>"></script>
 <?php $this->end(); ?>

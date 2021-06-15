@@ -7,7 +7,7 @@ use Libs\Connection;
 class CategoriaModel extends Model
 {
     protected $table = "categorias";
-    protected $primaryKey = "Idcategoria";
-    //protected $timestams = false;
-
+    protected $primaryKey = "IdCategoria";
+    public $timestamps = false;
+    protected $fillable = ['Nombre', 'Descripcion', 'Estado'];
 }

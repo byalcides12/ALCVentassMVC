@@ -38,16 +38,16 @@ class CategoriaDAO extends Dao
         $model->IdCategoria = $obj->IdCategoria;
         $model->Nombre = $obj->Nombre;
         $model->Descripcion = $obj->Descripcion;
-        $model->Estado = $obj->estado;
-        return $model->seve();
+        $model->Estado = $obj->Estado;
+        return $model->save();
     }
     public function update($obj)
     {
-        $model = CategoriaModel::find($obj->idcategoria);
-        $model->Nombre = $obj->nombre;
-        $model->Descripcion = $obj->descripcion;
-        $model->Estado = $obj->estado;
-        return $model->seve();
+        $model = CategoriaModel::find($obj->IdCategoria);
+        $model->Nombre = $obj->Nombre;
+        $model->Descripcion = $obj->Descripcion;
+        $model->Estado = $obj->Estado;
+        return $model->save();
     }
     public function delete(int $id)
     {

@@ -30,18 +30,18 @@ class CategoriaController extends Controller
     {
         $obj = new stdClass();
 
-        $obj->IdCategoria = isset($_POST['codcategoria'])? $_POST['codcategoria'] : 0;
+        $obj->IdCategoria = isset($_POST['idcategoria'])? $_POST['idcategoria'] : 0;
         $obj->Nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
         $obj->Descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
 
         if (isset($_POST['estado'])) {
             if ($_POST['estado'] == 'on') {
-                $obj->estado = true;
+                $obj->Estado = true;
             } else {
-                $obj->estado = false;
+                $obj->Estado = false;
             }
         } else {
-            $obj->estado = false;
+            $obj->Estado = false;
         }
         
         if($obj->IdCategoria > 0){
@@ -54,7 +54,7 @@ class CategoriaController extends Controller
 
     public function delete($param = null)
     {
-        $id = isset($param[0]) ? $param[0] : 0;
+        $id = isset($param[0]) ? intval($param[0]): 0;
 
         if ($id > 0) {
             $this->dao->delete($id);

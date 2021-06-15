@@ -1,14 +1,6 @@
-<?php $this->layout('../layouts/layout', ['title' => 'alcventassmvc|CATEGORIA']) ?>
-
-<?php $this->push('styles'); ?>
-<!-- //link de css  -->
-<?php $this->end(); ?>
-<?php $this->push('contents'); ?>
-
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h1>Categorías - Detalle</h1>
             <form action="<?= URL . 'Categoria/save' ?>" method="post">
                 <input type="hidden" name="idcategoria" value="<?= $data->IdCategoria ?>">
                 <div class="row">
@@ -44,8 +36,3 @@
         </div>
     </div>
 </div>
-
-<?php $this->end(); ?>
-<?php $this->push('scripts'); ?>
-<!-- //link js  -->
-<?php $this->end(); ?>
