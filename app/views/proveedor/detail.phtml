@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <form id="miForm" action="<?= URL . 'Proveedor/save' ?>" method="post">
+                <input type="hidden" name="idproveedor" value="<?= $data->IdProveedor ?>">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="id_nombre">Nombre</label>
+                            <input type="text" name="nombre" id="id_nombre" class="form-control" value="<?= $data->Nombre ?>">
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="id_direccion">Direccion</label>
+                            <input type="text" name="direccion" id="id_direccion" class="form-control" value="<?= $data->Direccion ?>">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="id_telefono">Telefono</label>
+                            <input type="text" name="telefono" id="id_telefono" class="form-control" value="<?= $data->Telefono ?>">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <input type="checkbox" name="estado" id="idestado" class="form-check-input" <?= ($data->Estado == 1) ? "checked" : "" ?> <label class="form-check-label" for="exampleCheck1">Estado</label>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-sm-8">
+                        <div id="mis_errores"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

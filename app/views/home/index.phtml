@@ -10,9 +10,11 @@ $this->layout('../layouts/layout', [
 <?php $this->end() ?>
 
 <?php $this->start('contents') ?>
+<?php include MAINPATH . 'app/views/layouts/partials/_hero.phtml' ?>
 <div class="container">
-    <h1>ALCVentas - Welcome</h1>
+    <h1>Alcides Salazar Rojas</h1>
 </div>
+<?php include MAINPATH . 'app/views/layouts/partials/_portafolio.phtml' ?>
 <?php $this->stop() ?>
 
 <?php $this->push('scripts') ?>

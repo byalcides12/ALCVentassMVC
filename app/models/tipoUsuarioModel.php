@@ -4,9 +4,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Libs\Connection;
 
-class TipoUsuarioModel extends Model
+class TipousUarioModel extends Model
 {
-    protected $table = "tipo_usuario";
+    protected $table = "tipousuario";
     protected $primaryKey = "IdUs";
     public $timestamps = false;
     protected $fillable = ['Nombre', 'Cargo', 'Estado'];

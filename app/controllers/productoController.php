@@ -2,17 +2,17 @@
 
 namespace App\Controllers;
 
-use App\Daos\ProveedorDAO;
+use App\Daos\ProductoDAO;
 use GUMP;
 use Libs\Controller;
 use stdClass;
 
-class ProveedorController extends Controller
+class ProductoController extends Controller
 {
     public function __construct()
     {
-        $this->loadDirectoryTemplate('proveedor');
-        $this->loadDao('Proveedor');
+        $this->loadDirectoryTemplate('producto');
+        $this->loadDao('Producto');
     }
 
     public function index()
@@ -25,7 +25,18 @@ class ProveedorController extends Controller
     {
         $id = isset($param[0]) ? $param[0] : 0;
         $data = $this->dao->get($id);
-        echo $this->template->render('detail', ['data' => $data]);
+        $this->loadDao('Marca');
+        $marcas = $this->dao->getAll(true);
+
+        $this->loadDao('Categoria');
+        $categorias = $this->dao->getAll(true);
+
+        $this->loadDao('Proveedor');
+        $proveedor = $this->dao->getAll(true);
+
+        
+
+        echo $this->template->render('detail', ['data' => $data,'marca' => $marcas, 'categorias' => $categorias, 'proveedores' => $proveedor]);
     }
 
     public function save()
@@ -38,10 +49,12 @@ class ProveedorController extends Controller
         if ($status === true) {
 
             $obj = new stdClass();
+            $obj->IdProducto = isset($_POST['idproducto']) ? $_POST['idproducto'] : 0;
+            $obj->IdMarca = isset($_POST['idmarca']) ? $_POST['idmarca'] : 0;
+            $obj->IdCategoria = isset($_POST['idcategoria']) ? $_POST['idcategoria'] : 0;
             $obj->IdProveedor = isset($_POST['idproveedor']) ? $_POST['idproveedor'] : 0;
             $obj->Nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
-            $obj->Direccion = isset($_POST['direccion']) ? $_POST['direccion'] : '';
-            $obj->Telefono = isset($_POST['telefono']) ? $_POST['telefono'] : '';
+            $obj->Descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
 
             if (isset($_POST['estado'])) {
                 if ($_POST['estado'] == 'on') {
@@ -53,7 +66,7 @@ class ProveedorController extends Controller
                 $obj->Estado = false;
             }
 
-            if ($obj->IdProveedor > 0) {
+            if ($obj->IdProducto > 0) {
                 $rpta = $this->dao->update($obj);
             } else {
                 $rpta = $this->dao->create($obj);
@@ -62,8 +75,8 @@ class ProveedorController extends Controller
             if ($rpta) {
                 $response = [
                     'success' => 1,
-                    'message' => 'Proveedor guardada correctamente',
-                    'redirection' => URL . 'proveedor/index'
+                    'message' => 'Producto guardada correctamente',
+                    'redirection' => URL . 'producto/index'
                 ];
             } else {
                 $response = [
@@ -91,7 +104,7 @@ class ProveedorController extends Controller
         if ($id > 0) {
             $this->dao->delete($id);
         }
-        header('Location:' . URL . 'proveedor/index');
+        header('Location:' . URL . 'producto/index');
     }
     public function valida($datos)
     {
@@ -99,8 +112,7 @@ class ProveedorController extends Controller
 
         $gump->validation_rules([
             'nombre' => 'required|max_len,20',
-            'direccion' => 'min_len,5|max_len,100',
-            'telefono' => 'max_len,15'
+            'descripcion' => 'min_len,5|max_len,100'
         ]);
 
         $valid_data = $gump->run($datos);

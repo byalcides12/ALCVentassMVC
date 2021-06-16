@@ -10,4 +10,9 @@ class ProveedorModel extends Model
     protected $primaryKey = "IdProveedor";
     public $timestamps = false;
     protected $fillable = ['Nombre', 'Direccion', 'Telefono', 'Estado'];
+
+    // public function productos()
+    // {
+    //     return $this->belongsTo(ProductoModel::class, 'IdProveedor');
+    // }
 }

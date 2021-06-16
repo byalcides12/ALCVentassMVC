@@ -3,6 +3,7 @@
 namespace App\Daos;
 
 use App\Models\TipoUsuarioModel;
+use App\Models\TipousuarioModel as ModelsTipousuarioModel;
 use Libs\Dao;
 use stdClass;
 
@@ -56,7 +57,7 @@ class TipoUsuarioDao extends Dao
     }
     public function baja(int $id)
     {
-        $sql = "UPDATE tipo_usuario set estado='false' WHERE idus=?";
+        $sql = "UPDATE tipousuario set estado='false' WHERE idus=?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(1, $id, \PDO::PARAM_INT);
         return $stmt->execute();

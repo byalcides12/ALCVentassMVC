@@ -14,7 +14,7 @@ class ProductoDao extends Dao
     }
     public function getAll(bool $estado)
     {
-        $result = ProductoModel::where('Estado', $estado)->orderBy('IdProducto', 'DESC')->get();
+        $result = ProductoModel:: with('proveedores', 'marcas', 'categorias')-> where('Estado', $estado)->orderBy('IdProducto', 'DESC')->get();
         return $result;
     }
 

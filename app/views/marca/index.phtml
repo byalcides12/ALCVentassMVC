@@ -1,4 +1,4 @@
-<?php $this->layout('../layouts/layout', ['title' => 'alcventassmvc|CATEGORIA']) ?>
+<?php $this->layout('../layouts/layout', ['title' => 'alcventassmvc|MARCA']) ?>
 
 <?php $this->push('styles'); ?>
 <!-- //link de css  -->
@@ -6,10 +6,10 @@
 <?php $this->push('contents'); ?>
 
 <div class="container">
-    <h1>Categorias</h1>
+    <h1>Marcas</h1>
     <div class="row">
         <div class="col-sm-4">
-            <a is-modal="true" href="<?= URL . 'categoria/detail' ?>" class="btn btn-primary btn-block">Nuevo</a>
+            <a is-modal="true" href="<?= URL . 'marca/detail' ?>" class="btn btn-primary btn-block">Nuevo</a>
         </div>
     </div>
     <br>
@@ -28,15 +28,15 @@
                 <tbody>
                     <?php foreach ($data as $row) : ?>
                         <tr>
-                            <td><?= $row->IdCategoria ?></td>
+                            <td><?= $row->IdMarca ?></td>
                             <td><?= $row->Nombre ?></td>
                             <td><?= $row->Descripcion ?></td>
                             <td><?= $row->Estado ?></td>
                             <a href=""></a>
                             <td>
-                                <a is-modal="true" href="<?= URL . "categoria/detail/{$row->IdCategoria}" ?>" title="Editar" class="btn btn-sm btn-primary"> <i class="fas fa-pencil-alt"></i></a>
+                                <a is-modal="true" href="<?= URL . "marca/detail/{$row->IdMarca}" ?>" title="Editar" class="btn btn-sm btn-primary"> <i class="fas fa-pencil-alt"></i></a>
 
-                                <a href="<?= URL . "categoria/delete/{$row->IdCategoria}" ?>" title="Eliminar" class="btn btn-sm btn-danger" onclick="return confirm('¿Está seguro de eliminar este registro?')"><i class="fa fa-trash"></i></a>
+                                <a href="<?= URL . "marca/delete/{$row->IdMarca}" ?>" title="Eliminar" class="btn btn-sm btn-danger" onclick="return confirm('¿Está seguro de eliminar este registro?')"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -51,7 +51,7 @@
 
 <?php
 
-$title = 'Categoria Detalle - Insertar';
+$title = 'Marca Detalle - Insertar';
 $size = GRANDE;
 include MAINPATH . 'app/views/layouts/partials/_modalGenerico.phtml';
 ?>

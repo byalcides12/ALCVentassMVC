@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <form id="miForm" action="<?= URL . 'tipousario/save' ?>" method="post">
+                <input type="hidden" name="idus" value="<?= $data->IdUs ?>">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="id_nombre">Nombre</label>
+                            <input type="text" name="nombre" id="id_nombre" class="form-control" value="<?= $data->Nombre ?>">
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label for="id_cargo">Cargo</label>
+                            <input type="text" name="cargo" id="id_cargo" class="form-control" value="<?= $data->Cargo ?>">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+
+                            <input type="checkbox" name="estado" id="id_estado" class="form-check-input" <?= ($data->Estado == 1) ? "checked" : "" ?> <label class="form-check-label" for="exampleCheck1">Estado</label>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-sm-8">
+                        <div id="mis_errores"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

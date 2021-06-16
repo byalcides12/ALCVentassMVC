@@ -1,4 +1,4 @@
-<?php $this->layout('../layouts/layout', ['title' => 'alcventassmvc|CATEGORIA']) ?>
+<?php $this->layout('../layouts/layout', ['title' => 'alcventassmvc|PRODUCTO']) ?>
 
 <?php $this->push('styles'); ?>
 <!-- //link de css  -->
@@ -6,10 +6,10 @@
 <?php $this->push('contents'); ?>
 
 <div class="container">
-    <h1>Categorias</h1>
+    <h1>Productos</h1>
     <div class="row">
         <div class="col-sm-4">
-            <a is-modal="true" href="<?= URL . 'categoria/detail' ?>" class="btn btn-primary btn-block">Nuevo</a>
+            <a is-modal="true" href="<?= URL . 'producto/detail' ?>" class="btn btn-primary btn-block">Nuevo</a>
         </div>
     </div>
     <br>
@@ -19,24 +19,30 @@
                 <thead>
                     <tr>
                         <th style="width: 10%;">ID</th>
-                        <th style="width: 30%;">NOMBRE</th>
-                        <th style="width: 50%;">DESCRIPCION</th>
+                        <th style="width: 15%;">Marca</th>
+                        <th style="width: 15%;">Categoria</th>
+                        <th style="width: 15%;">Proveedor</th>
+                        <th style="width: 15%;">NOMBRE</th>
+                        <th style="width: 20%;">DESCRIPCION</th>
                         <th style="width: 10%;">Estado</th>
-                        <th style="width: 20%;"></th>
+                        <th style="width: 10%;"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($data as $row) : ?>
                         <tr>
-                            <td><?= $row->IdCategoria ?></td>
+                            <td><?= $row->IdProducto ?></td>
+                            <td><?= $row->marcas->Nombre ?></td>
+                            <td><?= $row->categorias->Nombre ?></td>
+                            <td><?= $row->proveedores->Nombre ?></td>
                             <td><?= $row->Nombre ?></td>
                             <td><?= $row->Descripcion ?></td>
                             <td><?= $row->Estado ?></td>
                             <a href=""></a>
                             <td>
-                                <a is-modal="true" href="<?= URL . "categoria/detail/{$row->IdCategoria}" ?>" title="Editar" class="btn btn-sm btn-primary"> <i class="fas fa-pencil-alt"></i></a>
+                                <a is-modal="true" href="<?= URL . "producto/detail/{$row->IdProducto}" ?>" title="Editar" class="btn btn-sm btn-primary"> <i class="fas fa-pencil-alt"></i></a>
 
-                                <a href="<?= URL . "categoria/delete/{$row->IdCategoria}" ?>" title="Eliminar" class="btn btn-sm btn-danger" onclick="return confirm('¿Está seguro de eliminar este registro?')"><i class="fa fa-trash"></i></a>
+                                <a href="<?= URL . "producto/delete/{$row->IdProducto}" ?>" title="Eliminar" class="btn btn-sm btn-danger" onclick="return confirm('¿Está seguro de eliminar este registro?')"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -51,7 +57,7 @@
 
 <?php
 
-$title = 'Categoria Detalle - Insertar';
+$title = 'Producto Detalle - Insertar';
 $size = GRANDE;
 include MAINPATH . 'app/views/layouts/partials/_modalGenerico.phtml';
 ?>

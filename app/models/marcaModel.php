@@ -11,4 +11,9 @@ class MarcaModel extends Model
     protected $primaryKey = "IdMarca";
     public $timestamps = false;
     protected $fillable = ['Nombre', 'Descripcion', 'Estado'];
+
+    // public function productos()
+    // {
+    //     return $this->belongsTo(ProductoModel::class, 'IdMarca');
+    // }
 }
